@@ -25,7 +25,7 @@ export default function App() {
   useEffect(() => localStorage.setItem("cart", JSON.stringify(cart)), [cart]);
 
   return (
-    <CartContext.Provider>
+    <CartContext.Provider value={{cart, dispatch}}>
       <div className="content">
         <Header />
         <main>
@@ -38,7 +38,7 @@ export default function App() {
             />
             <Route
               path="/cart"
-              element={<Cart cart={cart} dispatch={dispatch} />}
+              element={<Cart />}
             />
             <Route path="/checkout" element={<Checkout cart={cart} dispatch={dispatch} />} />
           </Routes>
